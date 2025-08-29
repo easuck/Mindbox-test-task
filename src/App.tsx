@@ -1,34 +1,23 @@
+import './App.scss'
+import Task from './components/Task/Task'
+import TaskBar from './components/TaskBar/TaskBar'
+import TaskList from './components/TaskList/TaskList'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useAppSelector } from './store/hooks'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+const App = () => {
+  const todos = useAppSelector((state) => state.todos.todos);
+  const [isFolded, setIsFolded] = useState<boolean>(false);
+  return(
+    <div className='mainPage'>
+      <h1>todos</h1>
+      <TaskBar setIsFolded={setIsFolded} isFolded={isFolded}/>
+      <TaskList isFolded={isFolded}>
+        {todos?.map(todo => {
+            return <Task todo={todo}/>
+        })}
+      </TaskList>
+    </div>
   )
 }
 

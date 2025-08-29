@@ -1,0 +1,20 @@
+.TaskList{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  overflow: scroll;
+  transition: flex 0.3s ease-out;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+.folded{
+  flex: 0;
+}
+.ActionBar{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}

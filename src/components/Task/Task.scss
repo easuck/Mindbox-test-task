@@ -1,0 +1,30 @@
+.Task{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 20px 30px;
+  border: 1px solid var(--primary);
+  &_content{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    &_status{
+      cursor: pointer
+    }
+    & > h2{
+      font-size: 24px;
+      font-weight: 300;
+      flex: 1;
+      @media(max-width: 650px){
+        font-size: 14px;
+      }
+    }
+  }
+}
+.completed{
+  text-decoration: line-through;
+  text-decoration-color: #DADADA;
+  color: #DADADA;
+
+}
