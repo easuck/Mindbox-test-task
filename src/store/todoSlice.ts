@@ -7,7 +7,7 @@ type initialStateProps = {
 }
 
 const initialState: initialStateProps = {
-    todos: JSON.parse(localStorage.getItem('todos')) || []
+    todos: JSON.parse(localStorage.getItem('todos') || '[]')
 }
 
 const saveTodos = (todos: ITodo[]) => {

@@ -30,8 +30,19 @@ const TaskBar = ({setIsFolded, isFolded}: Props) => {
     return (
         <div className={'TaskBar'}>
             {
-                isFolded ? <MdKeyboardArrowDown size={50} onClick={() => setIsFolded(prev => !prev)} style={{flexShrink: 0}}/> :
-                <MdKeyboardArrowUp size={50} onClick={() => setIsFolded(prev => !prev)} style={{flexShrink: 0}}/>
+                isFolded ? 
+                <MdKeyboardArrowDown 
+                    size={50} 
+                    onClick={() => setIsFolded(prev => !prev)} 
+                    style={{flexShrink: 0}}
+                    data-testid="arrow-down"
+                /> :
+                <MdKeyboardArrowUp 
+                    size={50} 
+                    onClick={() => setIsFolded(prev => !prev)} 
+                    style={{flexShrink: 0}}
+                    data-testid="arrow-up"    
+                />
             }
             <input className='TaskBar_input'
                    placeholder='What needs to be done?'
@@ -41,6 +52,7 @@ const TaskBar = ({setIsFolded, isFolded}: Props) => {
             {text && <MdOutlineAddBox
                 size={50}
                 onClick={(e) => handleSubmit(e)}
+                data-testid="add-icon"
             />}
         </div>
 
