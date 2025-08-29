@@ -5,6 +5,7 @@ import {addTodo} from "../../store/todoSlice.ts";
 import {ITodo} from "../../models/ITodo.ts";
 import {v4 as uuid} from 'uuid';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineAddBox } from "react-icons/md";
+import { ChipType } from '../Chip/Chip.tsx';
 
 type Props = {
     isFolded: boolean;
@@ -19,7 +20,7 @@ const TaskBar = ({setIsFolded, isFolded}: Props) => {
         if (text != ''){
             const todo: ITodo = {
                 id: uuid(),
-                status: 'active',
+                status: ChipType.ACTIVE,
                 text: text
             }
             dispatch(addTodo(todo));

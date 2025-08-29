@@ -8,6 +8,10 @@
   &::-webkit-scrollbar{
     display: none;
   }
+  &_chips{
+    display: flex;
+    gap: 30px;
+  }
 }
 .folded{
   flex: 0;
@@ -15,6 +19,7 @@
 .ActionBar{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 20px;
 }

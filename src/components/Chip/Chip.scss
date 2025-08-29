@@ -1,0 +1,12 @@
+.Chip{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid white;
+    cursor: pointer;
+    &:hover{
+        border: 2px solid var(--primary);
+    }
+    &_selected{
+        border: 2px solid var(--primary);
+    }
+}

@@ -1,5 +1,7 @@
+import { ChipType } from "../components/Chip/Chip"
+
 export type ITodo = {
     id: string,
-    status: 'active' | 'completed',
+    status: ChipType,
     text: string
 }
