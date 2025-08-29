@@ -15,8 +15,7 @@ type Props = {
 const TaskBar = ({setIsFolded, isFolded}: Props) => {
     const [text, setText] = useState<string>('');
     const dispatch = useDispatch();
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
         if (text != ''){
             const todo: ITodo = {
                 id: uuid(),
@@ -27,6 +26,12 @@ const TaskBar = ({setIsFolded, isFolded}: Props) => {
             setText('');
         }
     }
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSubmit();
+        }
+    }
     return (
         <div className={'TaskBar'}>
             {
@@ -34,13 +39,13 @@ const TaskBar = ({setIsFolded, isFolded}: Props) => {
                 <MdKeyboardArrowDown 
                     size={50} 
                     onClick={() => setIsFolded(prev => !prev)} 
-                    style={{flexShrink: 0}}
+                    style={{flexShrink: 0, cursor: 'pointer'}}
                     data-testid="arrow-down"
                 /> :
                 <MdKeyboardArrowUp 
                     size={50} 
                     onClick={() => setIsFolded(prev => !prev)} 
-                    style={{flexShrink: 0}}
+                    style={{flexShrink: 0, cursor: 'pointer'}}
                     data-testid="arrow-up"    
                 />
             }
@@ -48,10 +53,11 @@ const TaskBar = ({setIsFolded, isFolded}: Props) => {
                    placeholder='What needs to be done?'
                    value={text}
                    onChange={(e) => setText(e.target.value)}
+                   onKeyUp={handleKeyPress}
             />
             {text && <MdOutlineAddBox
                 size={50}
-                onClick={(e) => handleSubmit(e)}
+                onClick={handleSubmit}
                 data-testid="add-icon"
             />}
         </div>

@@ -4,7 +4,11 @@
   gap: 15px;
   width: 100%;
   padding: 20px 30px;
-  border: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+  background: white;
+  @media(max-width: 650px){
+    height: 52px;
+  }
   &_content{
     display: flex;
     gap: 20px;

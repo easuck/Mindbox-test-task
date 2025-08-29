@@ -5,21 +5,36 @@
   flex: 1;
   overflow: scroll;
   transition: flex 0.3s ease-out;
+  background: white;
+  border: 1px solid var(--primary);
+  box-shadow: 0 4px 17.8px 0 rgba(0, 0, 0, 0.1);
   &::-webkit-scrollbar{
     display: none;
   }
   &_chips{
     display: flex;
     gap: 30px;
+    @media(max-width: 1000px){
+      gap: 10px;
+    }
   }
 }
 .folded{
   flex: 0;
 }
 .ActionBar{
+  color: #626262;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  padding: 15px 20px;
+  background: white;
+  border-left: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
+  box-shadow: 0 4px 17.8px 0 rgba(0, 0, 0, 0.1);
+  @media(max-width: 650px){
+    height: 52px;
+    font-size: 14px;
+  }
 }
