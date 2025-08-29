@@ -38,13 +38,13 @@ const TaskBar = ({setIsFolded, isFolded}: Props) => {
                 isFolded ? 
                 <MdKeyboardArrowDown 
                     size={50} 
-                    onClick={() => setIsFolded(prev => !prev)} 
+                    onClick={() => setIsFolded((prev: boolean) => !prev)} 
                     style={{flexShrink: 0, cursor: 'pointer'}}
                     data-testid="arrow-down"
                 /> :
                 <MdKeyboardArrowUp 
                     size={50} 
-                    onClick={() => setIsFolded(prev => !prev)} 
+                    onClick={() => setIsFolded((prev: boolean) => !prev)} 
                     style={{flexShrink: 0, cursor: 'pointer'}}
                     data-testid="arrow-up"    
                 />
