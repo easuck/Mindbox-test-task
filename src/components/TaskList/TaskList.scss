@@ -15,7 +15,11 @@
     display: flex;
     gap: 30px;
     @media(max-width: 1000px){
-      gap: 10px;
+      gap: 5px;
+    }
+    @media(max-width: 700px){
+      justify-content: space-between;
+      width: 100%;
     }
   }
 }
@@ -36,5 +40,10 @@
   @media(max-width: 650px){
     height: 52px;
     font-size: 14px;
+  }
+  @media(max-width: 700px){
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
   }
 }
